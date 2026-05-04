@@ -1,0 +1,198 @@
+{
+  "$schema": "https://app.kilo.ai/config.json",
+  "model": "openrouter/@preset/ds-flash",
+  "provider": {
+    "openrouter": {
+      "options": {
+        "apiKey": "YOUR_OPENROUTER_API_KEY"
+      },
+      "baseURL": "https://openrouter.ai/api/v1",
+"models": {
+        "@preset/ds-flash": {
+          "name": "DeepSeek Flash"
+        },
+        "@preset/ui-designer-ds-v4-flash": {
+          "name": "UI Designer DS v4 Flash"
+        },
+        "@preset/plan-ds-v4-flash": {
+          "name": "Plan DS v4 Flash"
+        },
+        "@preset/debug-ds-v4-flash": {
+          "name": "Debug DS v4 Flash"
+        },
+        "@preset/ask-ds-v4-flash": {
+          "name": "Ask DS v4 Flash"
+        },
+        "@preset/code-ds-v4-flash": {
+          "name": "Code DS v4 Flash"
+        }
+      }
+    }
+  },
+  "mcp": {
+    "gh_grep": {
+      "type": "remote",
+      "url": "https://mcp.grep.app",
+      "enabled": false  // 禁用：服务器返回405错误，暂时不可用
+    },
+    "chrome-devtools": {
+      "type": "local",
+      "command": ["npx", "-y", "chrome-devtools-mcp@latest", "--executablePath", "C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe"],
+      "enabled": true,
+      "timeout": 10000
+    },
+    "github": {
+      "type": "local",
+      "command": ["npx", "-y", "@modelcontextprotocol/server-github"],
+      "environment": {
+        "GITHUB_PERSONAL_ACCESS_TOKEN": "YOUR_GITHUB_TOKEN"
+      },
+      "enabled": true
+    },
+    "sequential-thinking": {
+      "type": "local",
+      "command": ["npx", "-y", "@modelcontextprotocol/server-sequential-thinking"],
+      "environment": {},
+      "enabled": true
+    },
+    "html-extractor": {
+      "type": "local",
+      "command": ["npx", "-y", "html-extractor-mcp"],
+      "environment": {},
+      "enabled": true
+    },
+    "files": {
+      "type": "local",
+      "command": ["npx", "-y", "@modelcontextprotocol/server-filesystem", "C:\\Users\\Administrator\\Documents\\Codex", "C:\\tmp"],
+      "environment": {},
+      "enabled": true
+    },
+    "cloudflare": {
+      "type": "local",
+      "command": ["npx", "-y", "@cloudflare/mcp-server-cloudflare", "run"],
+      "environment": {},
+      "enabled": true
+    },
+    "mem0": {
+      "type": "remote",
+      "url": "https://mcp.mem0.ai/mcp",
+      "headers": {
+        "Authorization": "Token YOUR_MEM0_TOKEN"
+      },
+      "enabled": true
+    }
+  },
+  "agent": {
+    "ui-designer": {
+      "description": "专门负责UI设计和前端开发的智能代理",
+      "mode": "primary",
+      "color": "#FF6B6B",
+      "model": "openrouter/@preset/ui-designer-ds-v4-flash",
+      "permission": {
+        "edit": {
+          "*.css": "allow",
+          "*.scss": "allow",
+          "*.less": "allow",
+          "*.html": "allow",
+          "*.jsx": "allow",
+          "*.tsx": "allow",
+          "*.vue": "allow",
+          "*.md": "allow",
+          "*": "deny"
+        },
+        "bash": "ask",
+        "read": "allow"
+      },
+      "steps": 25,
+      "temperature": 0.8
+    }
+  },
+  "permission": {
+    "bash": {
+      "*": "allow",
+      "Get-ChildItem *": "allow",
+      "Test-Path *": "allow",
+      "Get-Content *": "allow",
+      "Set-Content *": "allow",
+      "Out-File *": "allow",
+      "npm run dev *": "allow",
+      "node *": "allow",
+      "Start-Process *": "allow",
+      "npx *": "allow",
+      "git status *": "allow",
+      "git checkout *": "allow",
+      "Select-String *": "allow",
+      "timeout *": "allow",
+      "Invoke-WebRequest *": "allow",
+      "Start-Sleep *": "allow",
+      "Select-Object *": "allow",
+      "Stop-Process *": "allow",
+      "dir *": "allow",
+      "git branch *": "allow",
+      "curl *": "allow",
+      "head *": "allow",
+      "Out-String *": "allow",
+      "ForEach-Object *": "allow",
+      "wrangler *": "allow",
+      "Remove-Item *": "allow",
+      "Format-Table *": "allow",
+      "Get-Item *": "allow",
+      "Get-Random *": "allow",
+      "Write-Output *": "allow",
+      "Get-Process *": "allow",
+      "powershell *": "allow",
+      "python -c *": "allow",
+      "netstat *": "allow",
+      "findstr *": "allow",
+      "echo *": "allow",
+      "git diff *": "allow",
+      "git add *": "allow",
+      "git commit *": "allow",
+      "git push *": "allow",
+      "git log *": "allow",
+      "npm run deploy *": "allow",
+      "find *": "allow",
+      "Where-Object *": "allow",
+      "git init *": "allow",
+      "git config user.email *": "allow",
+      "git config user.name *": "allow",
+      "git remote -v *": "allow",
+      "env *": "allow",
+      "grep *": "allow",
+      "gh auth status *": "allow",
+      "gh repo create *": "allow",
+      "git rebase *": "allow",
+      "git reset *": "allow",
+      "git rm *": "allow",
+      "rm *": "allow",
+      "rmdir *": "allow",
+      "git remote add *": "allow",
+      "gh repo view *": "allow",
+      "npm --version *": "allow",
+      "bash *": "allow",
+      "ls *": "allow",
+      "tasklist *": "allow",
+      "New-Item *": "allow",
+      "Out-Null *": "allow",
+      "$chromium *": "allow",
+      "Take-Screenshot *": "allow",
+      "Take-Screenshot-Long *": "allow",
+      "Start-Job *": "allow",
+      "New-Object *": "allow"
+    },
+    "external_directory": {
+      "C:\\Users\\Administrator\\Documents\\Codex\\openrouter-model-site-ds-oencode-kilo\\src\\*": "allow",
+      "C:\\tmp\\*": "allow",
+      "C:\\*": "allow"
+    },
+    "github_search_repositories": {
+      "*": "allow"
+    },
+    "github_get_file_contents": {
+      "*": "allow"
+    },
+    "github_list_commits": {
+      "*": "allow"
+    }
+  }
+}
