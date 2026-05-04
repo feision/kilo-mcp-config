@@ -75,7 +75,7 @@
     },
     "mem0": {
       "type": "remote",
-      "url": "https://mcp.mem0.ai/mcp",
+      "url": "https://mcp.mem0.ai/mcp/",
       "headers": {
         "Authorization": "Token YOUR_MEM0_TOKEN"
       },
@@ -196,3 +196,4 @@
     }
   }
 }
+
