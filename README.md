@@ -80,7 +80,7 @@ Kilo IDE is configured with 8 MCP servers that provide various tools for code ma
 
 ### 8. Cloud Memory (`mem0`)
 - **Type**: Remote
-- **URL**: https://mcp.mem0.ai/mcp
+- **URL**: https://mcp.mem0.ai/mcp/
 - **Headers**: `Authorization: Token m0-...`
 - **Purpose**: Persistent vector memory for AI assistants
 - **Features**:
