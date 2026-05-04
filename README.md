@@ -261,3 +261,4 @@ GitHub operations use personal access tokens with repository-specific permission
 
 This configuration is provided as-is for Kilo IDE users.
 Individual MCP servers have their own licenses.
+
